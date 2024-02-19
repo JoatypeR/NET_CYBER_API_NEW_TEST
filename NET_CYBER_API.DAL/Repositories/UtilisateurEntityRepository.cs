@@ -1,4 +1,5 @@
-﻿using NET_CYBER_API.DAL.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using NET_CYBER_API.DAL.Data;
 using NET_CYBER_API.DAL.Interfaces;
 using NET_CYBER_API.Domain.Models;
 using System;
@@ -25,9 +26,21 @@ namespace NET_CYBER_API.DAL.Repositories
             return Utilisateur;
         }
 
-        public bool Delete(int id)
+        public bool Delete(Utilisateur utilisateur)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if(utilisateur is not null)
+                {
+                    _context.utilisateurs.Remove(utilisateur);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
 
         public IEnumerable<Utilisateur> GetAll()

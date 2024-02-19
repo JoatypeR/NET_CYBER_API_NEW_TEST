@@ -35,6 +35,14 @@ namespace NET_CYBER_API.API.Controllers
             }
             return BadRequest();
         }
+        [HttpDelete]
+        [Produces("application/json")]
+        public IActionResult Delete (int id)
+        {
+            _service.Delete(id);
+            return NoContent();
+        }
+
 
     }
 }

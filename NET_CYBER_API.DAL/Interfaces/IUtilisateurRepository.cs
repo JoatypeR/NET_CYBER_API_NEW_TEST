@@ -14,6 +14,6 @@ namespace NET_CYBER_API.DAL.Interfaces
         Utilisateur GetByEmail(string email);
         Utilisateur Create(Utilisateur Utilisateur);
         Utilisateur Update(Utilisateur Utilisateur);
-        bool Delete(int id);
+        bool Delete(Utilisateur u);
     }
 }

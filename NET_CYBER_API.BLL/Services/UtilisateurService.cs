@@ -1,4 +1,5 @@
-﻿using NET_CYBER_API.BLL.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using NET_CYBER_API.BLL.Interfaces;
 using NET_CYBER_API.DAL.Interfaces;
 using NET_CYBER_API.Domain.Models;
 using System;
@@ -25,7 +26,21 @@ namespace NET_CYBER_API.BLL.Services
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Utilisateur? utilisateur = GetById(id);
+                if (utilisateur is not null)
+                {
+                    return  _repository.Delete(utilisateur);
+                   
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        
         }
 
         public IEnumerable<Utilisateur> GetAll()
