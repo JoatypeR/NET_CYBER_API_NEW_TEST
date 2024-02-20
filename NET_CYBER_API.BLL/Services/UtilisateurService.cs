@@ -14,6 +14,7 @@ namespace NET_CYBER_API.BLL.Services
     public class UtilisateurService : IUtilisateurService
     {
         private readonly IUtilisateurRepository _repository;
+        private object _service;
 
         public UtilisateurService(IUtilisateurRepository repository)
         {
@@ -53,7 +54,9 @@ namespace NET_CYBER_API.BLL.Services
 
         public Utilisateur GetByEmail(string email)
         {
-            Utilisateur? utilisateur = _service.GetByEmail(email);
+            Utilisateur? utilisateur = _service as Utilisateur;
+            return utilisateur;
+
         }
 
         public Utilisateur GetById(int id)

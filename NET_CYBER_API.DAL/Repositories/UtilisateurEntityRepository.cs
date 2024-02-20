@@ -46,7 +46,7 @@ namespace NET_CYBER_API.DAL.Repositories
 
         public IEnumerable<Utilisateur> GetAll()
         {
-            return _context.utilisateurs.FirstOrDefault(x => x.Email ==  email);
+            throw new NotImplementedException();
         }
 
         public Utilisateur GetByEmail(string email)
