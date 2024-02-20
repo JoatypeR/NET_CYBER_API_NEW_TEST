@@ -5,6 +5,7 @@ using NET_CYBER_API.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,7 +46,7 @@ namespace NET_CYBER_API.DAL.Repositories
 
         public IEnumerable<Utilisateur> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.utilisateurs.FirstOrDefault(x => x.Email ==  email);
         }
 
         public Utilisateur GetByEmail(string email)

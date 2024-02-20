@@ -22,12 +22,12 @@ namespace NET_CYBER_API.API.Controllers
 
         [HttpPost]
         [Produces("application/json")]
-        [ProducesResponseType(StatusCodes.Status201Created,Type = typeof(Utilisateur))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Utilisateur))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-        public IActionResult Insert([FromBody]UtilisateurDataDTO utilisateur)
+        public IActionResult Insert([FromBody] UtilisateurDataDTO utilisateur)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _service.Create(utilisateur.DTOToDomain());
                 return Ok();
@@ -37,12 +37,11 @@ namespace NET_CYBER_API.API.Controllers
         }
         [HttpDelete]
         [Produces("application/json")]
-        public IActionResult Delete (int id)
+        public IActionResult Delete(int id)
         {
             _service.Delete(id);
             return NoContent();
         }
-
-
     }
 }
+   

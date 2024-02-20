@@ -5,6 +5,7 @@ using NET_CYBER_API.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,8 @@ namespace NET_CYBER_API.BLL.Services
 
         public Utilisateur Create(Utilisateur Utilisateur)
         {
+            //Mettre le Bcrypt
+
             return _repository.Create(Utilisateur);
         }
 
@@ -50,7 +53,7 @@ namespace NET_CYBER_API.BLL.Services
 
         public Utilisateur GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            Utilisateur? utilisateur = _service.GetByEmail(email);
         }
 
         public Utilisateur GetById(int id)

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NET_CYBER_API.DAL\NET_CYBER_API.DAL.csproj" />
     <ProjectReference Include="..\NET_CYBER_API.Domain\NET_CYBER_API.Domain.csproj" />
   </ItemGroup>
